@@ -1,0 +1,58 @@
+.error-container {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.storm-icon {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 20px;
+}
+
+.error-title {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.error-message {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.home-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.home-button:hover {
+    background-color: #3570b8;
+}
+
+.suggestions {
+    margin-top: 40px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.suggestions h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.suggestions ul {
+    margin-bottom: 0;
+}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}7-Day Forecast - {{data.city }}{% endblock %}
+
+{% block content %}
+<h2>7-Day Forecast for {{ data.city }}, {{data.state}}</h2>
+
+<div class="seven-day-forecast">
+    {% for i in range(data.date | length) %}
+    <div class="forecast-day {{ i }}">
+            <p>{{ data.date[i] }}</p>
+            <img src="{{data.icon_daily[i] }}" alt="{{ data.description_daily[i] }}">
+            <p>{{ data.description_daily[i] }}</p>
+            <p>{{ data.temperature_2m_max[i] }}&deg; / {{ data.temperature_2m_min[i] }} &deg;{{data.unit}}</p>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

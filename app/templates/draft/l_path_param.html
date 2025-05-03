@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Path Param Demo</title>
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Enter City (Path Param)</h2>
+
+        <input type="text" id="city-input" placeholder="Enter city name"><br><br>
+
+        <label><input type="radio" name="unit" value="C" checked> Celsius</label>
+        <label><input type="radio" name="unit" value="F"> Fahrenheit</label><br><br>
+
+        <button onclick="submit()">Submit</button>
+
+        <h3>Result Table</h3>
+        <table>
+            <tr>
+                <th>Label</th>
+                <th>Value</th>
+                <th>Unit</th>
+            </tr>
+            <tr>
+                <td>Temp</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td>--</td>
+                <td>--</td>
+            </tr>
+        </table>
+
+        <script>
+            function submit() {
+                const city = document.getElementById("city-input").value;
+                const unit = document.querySelector('input[name="unit"]:checked').value;
+                window.location.href = `/test/${city}?unit=${unit}`;
+            }
+        </script>
+    </body>
+
+</html>

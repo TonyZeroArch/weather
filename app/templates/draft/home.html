@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather Dashboard - Home</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/apple-styles.css') }}" />
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <!-- Uncomment the logo section if needed
+            <div class="logo">
+                <a href="{{ url_for('main.home') }}">Weather Dashboard</a>
+            </div>
+            -->
+            <ul class="nav-links">
+                <li><a href="{{ url_for('main.settings') }}">Settings</a></li>
+                <li><a href="{{ url_for('main.hourly', city='Raleigh, NC', date = 'today') }}">Hourly</a></li>
+                <li><a href="{{ url_for('main.forecast', city='Raleigh, NC') }}">Forecast</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="search-bar">
+                <input type="text" placeholder="Enter a city name, zip code" id="locationInput" />
+                <button id="searchButton">Search</button>
+            </div>
+            <div class="main-weather">
+                <div class="weather-info">
+                    <h1 class="date">Today, 10/01/2023</h1>
+                    <h1 class="location"><a href="{{ url_for('main.forecast', city='Raleigh, NC') }}">Raleigh, NC</a></h1>
+                    <h1 class="temp">16&deg;C</h1>
+                    <p class="description">Storm with Rain</p>
+                    <div class="metrics">
+                        <span>🌬️ Wind: 2.4km/h</span>
+                        <span>💧 Humidity: 70%</span>
+                    </div>
+                </div>
+                <div class="weather-icon">
+                    <img src="{{ url_for('static', filename='images/storm-icon.png') }}" alt="Storm Icon">
+                </div>
+            </div>
+            <div class="hourly-forecast">
+                <div class="hour">
+                    <p>08:00</p>
+                    <p>9&deg;</p>
+                </div>
+                <div class="hour current">
+                    <p>09:00</p>
+                    <p>12&deg;</p>
+                </div>
+                <div class="hour">
+                    <p>10:00</p>
+                    <p>8&deg;</p>
+                </div>
+                <div class="hour">
+                    <p>11:00</p>
+                    <p>19&deg;</p>
+                </div>
+                <div class="hour">
+                    <p>12:00</p>
+                    <p>25&deg;</p>
+                </div>
+                <div class="hour">
+                    <p>13:00</p>
+                    <p>22&deg;</p>
+                </div>
+                <div class="hour">
+                    <p>14:00</p>
+                    <p>18&deg;</p>
+                </div>
+                <div class="hour">
+                    <p>15:00</p>
+                    <p>22&deg;</p>
+                </div>
+            </div>
+
+            <div class="daily-forecast">
+                <div class="day">
+                    <p>Mon</p>
+                    <p>16&deg;</p>
+                </div>
+                <div class="day">
+                    <p>Tue</p>
+                    <p>12&deg;</p>
+                </div>
+                <div class="day">
+                    <p>Wed</p>
+                    <p>8&deg;</p>
+                </div>
+                <div class="day">
+                    <p>Thu</p>
+                    <p>19&deg;</p>
+                </div>
+                <div class="day">
+                    <p>Fri</p>
+                    <p>25&deg;</p>
+                </div>
+            </div>
+        </div>
+        <!-- <script src="{{ url_for('static', filename='js/home.js') }}"></script> -->
+    </body>
+
+</html>

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Hourly Forecast - {{ data.city }} on {{ data.date }}{% endblock %}
+
+{% block content %}
+<h2>Next 24-Hour Weather Outlook for {{ data.city }}, {{data.state}} on {{ data.date }}</h2>
+<p>Updated at Local Time: {{ data.updated_time }}</p>
+<div class="hourly-forecast">
+    {% for i in range(data.hours|length) %}
+    <div class="hour-row{{i}}">
+        <p><strong>{{ data.hours[i]}}</strong></p>
+        <img src="{{ data.icon_hourly[i] }}" alt="{{ data.description_hourly[i] }}">
+        <p class="description{{i}}">{{ data.description_hourly[i] }}</p>
+        <p class="temp{{i}}" >{{ data.hourly_temperature_2m[i] }} &deg;{{ data.unit }}</p>
+        <p class="precip{{i}}">Precipitation {{ data.hourly_precipitation_probability[i] }}%</p>
+
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{{ url_for('main.forecast', city=city) }}">← Back to Forecast</a>
+{% endblock %}

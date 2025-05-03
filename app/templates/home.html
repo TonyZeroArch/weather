@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Weather Dashboard - Home{% endblock %}
+
+{% block content %}
+<form class="search-bar">
+    <input type="text" placeholder="Enter a city name, zip code" id="locationInput" />
+    <button id="searchButton">Search</button>
+</form>
+
+<script src="{{ url_for('static', filename='js/search.js') }}"></script>
+
+<div class="weather-card">
+    <div class="location">
+        <h1 id ="city_state" >
+            <a href="{{ url_for('main.forecast') }}">
+                     {{ weather.city_state }}</a>
+        </h1>
+        <p  id = "updated_time">Updated at Local Time: {{ weather.updated_time }}</p>
+        <h1 id = "current_temp">{{ weather.current_temperature_2m }} &deg{{weather.unit}}</h1>
+        <p id = "like_temp">Feels Like {{ weather.current_apparent_temperature }} &degF</p>
+    </div>
+    <div class="weather-info">
+        <!-- <img src="{{ url_for('static', filename='images/sunny.png') }}" alt="Sunny Icon" class="weather-icon">
+        <p class="cur_condition"> {{ weather.condition }}</p> -->
+        <img src = "{{weather.icon}}" alt="Weather Icon" class="weather-icon">
+        <p class="cur_condition"> {{ weather.description }}</p>
+    </div>
+
+    <table class="weather-table">
+
+        <tr>
+            <th>Highest</th>
+            <th>Lowest</th>
+            <th>UV</th>
+        </tr>
+        <tr>
+            <td id="max_temp">{{ weather.daily_temperature_2m_max }} &deg{{weather.unit}}</td>
+            <td id="min_temp">{{ weather.daily_temperature_2m_min }} &deg{{weather.unit}}</td>
+            <td id="uv">{{ weather.daily_uv_index_max }}</td>
+        </tr>
+        <tr>
+            <th> </th>
+            <th> </th>
+            <th> </th>
+        </tr>
+        <tr>
+            <th>Precipitation</th>
+            <th>Wind Speed</th>
+            <!-- <th>Humidity</th> -->
+        </tr>
+        <tr>
+            <td id="precip">{{ weather.current_precipitation }} %</td>
+            <td id="wind_speed">{{ weather.current_wind_speed_10m }} mph</td>
+            <!-- <td id="humidity">{{ weather.humidity }}</td> -->
+        </tr>
+
+    </table>
+
+</div>
+
+<div class="hourly-forecast">
+    {% for i in range(weather.hours|length) %}
+    <div class="hour{{i}}">
+        <p class="time{{i}}">{{ weather.hours[i] }}</p>
+        <p class="temp{{i}}">{{ weather.hourly_temperature_2m[i]}}°{{weather.unit}}</p>
+        <p class="precip{{i}}">{{ weather.hourly_precipitation_probability[i]}}%</p>
+        <p class = "description{{i}}">{{ weather.description_hourly[i] }}</p>
+        <img src="{{ weather.icon_hourly[i] }}"
+            alt="{{ weather.description_hourly[i] }}" class="hour-icon{{i}}">
+    </div>
+    {% endfor %}
+</div>
+<!-- <div class="daily-forecast"> -->
+
+<!-- <script src="{{ url_for('static', filename='js/home.js') }}"></script> -->
+{% endblock %}

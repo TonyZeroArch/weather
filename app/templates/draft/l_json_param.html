@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>POST JSON Demo</title>
+        <style>
+            table,
+            th,
+            td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 4px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Submit JSON (POST)</h2>
+
+        <!-- Input form (does not use traditional form tag) -->
+        <label for="city">City:</label>
+        <input type="text" id="city" placeholder="Enter city"><br><br>
+
+        <!-- Radio buttons -->
+        <label><input type="radio" name="unit" value="C" checked> Celsius</label>
+        <label><input type="radio" name="unit" value="F"> Fahrenheit</label><br><br>
+
+        <!-- Submit button -->
+        <button onclick="submitData()">Submit</button>
+
+        <!-- Table -->
+        <h3>Result Table</h3>
+        <table>
+            <tr>
+                <th>Label</th>
+                <th>Value</th>
+                <th>Unit</th>
+            </tr>
+            <tr>
+                <td>Temp</td>
+                <td id="temp-val">--</td>
+                <td id="temp-unit">--</td>
+            </tr>
+            <tr>
+                <td>Humidity</td>
+                <td id="humidity-val">--</td>
+                <td>%</td>
+            </tr>
+        </table>
+
+        <script>
+            async function submitData() {
+                const city = document.getElementById("city").value;
+                const unit = document.querySelector('input[name="unit"]:checked').value;
+
+                const response = await fetch("/test/json_api", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ city: city, unit: unit })
+                });
+
+                const data = await response.json();
+
+                // Display result
+                document.getElementById("temp-val").textContent = data.temperature;
+                document.getElementById("temp-unit").textContent = data.unit;
+                document.getElementById("humidity-val").textContent = data.humidity;
+            }
+        </script>
+    </body>
+
+</html>

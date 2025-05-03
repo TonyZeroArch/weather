@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{% block title %}Weather Dashboard{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/apple-styles-v2.css') }}" />
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="{{ url_for('main.home') }}">
+                    <img src="{{ url_for('static', filename='images/wake-tech-logo.svg') }}" alt="Wake Tech Logo" class="nav-logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('main.settings') }}">Settings</a></li>
+                <li><a href="{{ url_for('main.hourly') }}">Hourly</a></li>
+                <li><a href="{{ url_for('main.forecast') }}">Forecast</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+
+        <!-- <script src="{{ url_for('static', filename='js/update_home.js') }}"></script> -->
+    </body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard - Forecast</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/apple-styles.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <h2>7-Day Weather Forecast for {{ city }}</h2>
+    <div class="weekly-forecast">
+      {% for day in forecast %}
+      <div class="forecast-day">
+        <p class="day-name">{{ day.name }}</p>
+        <img src="{{ url_for('static', filename='images/' + day.icon) }}" alt="{{ day.description }}" />
+        <p class="temp-range">{{ day.temp_high }}&deg; / {{ day.temp_low }}&deg;</p>
+        <p class="summary">{{ day.description }}</p>
+        <div class="metrics">
+          <span>💨 {{ day.wind }} km/h</span>
+          <span>💧 {{ day.humidity }}%</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>

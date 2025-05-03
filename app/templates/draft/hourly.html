@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard - Hourly Forecast</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/apple-styles.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <h2>Hourly Forecast for {{ city }} on {{ date }}</h2>
+    <div class="hourly-forecast">
+      {% for hour in hourly_data %}
+      <div class="hour-block">
+        <p class="hour-time">{{ hour.time }}</p>
+        <img src="{{ url_for('static', filename='images/' + hour.icon) }}" alt="{{ hour.description }}" />
+        <p class="hour-temp">{{ hour.temp }}&deg;</p>
+        <p class="hour-desc">{{ hour.description }}</p>
+        <div class="hour-metrics">
+          <span>💨 {{ hour.wind }} km/h</span>
+          <span>💧 {{ hour.humidity }}%</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+
+</html>

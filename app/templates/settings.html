@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Weather Dashboard - Settings{% endblock %}
+
+{% block content %}
+<h2>Settings</h2>
+<form method="POST" action="{{ url_for('main.settings') }}" class="settings-form">
+    <div class="form-group">
+        <label for="temp-unit">Temperature Unit</label>
+        <select id="temp-unit" name="temp_unit">
+            <option value="C" {% if data.temp_unit=='C' %}selected{% endif %}>Celsius (&deg;C)</option>
+            <option value="F" {% if data.temp_unit=='F' or not data.temp_unit %}selected{% endif %}>Fahrenheit
+                (&deg;F)</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="wind-unit">Wind Speed Unit</label>
+        <select id="wind-unit" name="wind_unit">
+            <option value="kmh" {% if data.wind_unit=='kmh' %}selected{% endif %}>km/h</option>
+            <option value="mph" {% if data.wind_unit=='mph' or not data.wind_unit %}selected{% endif %}>mph
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="precip-unit">Precipitation Unit</label>
+        <select id="precip-unit" name="precip_unit">
+            <option value="mm" {% if data.precip_unit=='mm' %}selected{% endif %}>Millimeters (mm)</option>
+            <option value="in" {% if data.precip_unit=='in' or not data.precip_unit %}selected{% endif %}>Inches
+                (in)</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn-save">Save Settings</button>
+</form>
+{% endblock %}

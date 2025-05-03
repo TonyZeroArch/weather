@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard - Settings</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/apple-styles.css') }}" />
+</head>
+
+<body>
+  <div class="container">
+    <h2>Settings</h2>
+    <form method="POST" action="/settings" class="settings-form">
+      <div class="form-group">
+        <label for="temp-unit">Temperature Unit</label>
+        <select id="temp-unit" name="temp_unit">
+          <option value="C">Celsius (&deg;C)</option>
+          <option value="F">Fahrenheit (&deg;F)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="wind-unit">Wind Speed Unit</label>
+        <select id="wind-unit" name="wind_unit">
+          <option value="kmh">km/h</option>
+          <option value="mph">mph</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="precip-unit">Precipitation Unit</label>
+        <select id="precip-unit" name="precip_unit">
+          <option value="mm">Millimeters (mm)</option>
+          <option value="in">Inches (in)</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-save">Save Settings</button>
+    </form>
+  </div>
+</body>
+
+</html>

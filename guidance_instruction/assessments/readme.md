@@ -1,0 +1,3 @@
+This contains information on how your project will be graded as both a team and as individuals. There are 3 peer evaluations that are due throughtout the project and a 4th to evaluate the project lead.  
+
+The peer evals are in microsoft excel.  It is suggested that you make sure know how to correctly fill out this document.  The file attached is a template. Once groups are finalized each group will recieve their own template to be used for each peer eval. If they are not filled out correctly and as expected you will receive a grade of 0 for the assignment.  If you do not know how to complete please contact your Project Lead for more guidance.

@@ -1,0 +1,534 @@
+bplist00“_WebMainResource_WebSubresources’	
+_WebResourceTextEncodingName_WebResourceData_WebResourceMIMEType_WebResourceFrameName^WebResourceURLUUTF-8O
+<!DOCTYPE html><html lang="en"><head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>7-Day Forecast - Cary</title>
+        <link rel="stylesheet" href="/static/css/apple-styles-v2.css">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/">
+                    <img src="/static/images/wake-tech-logo.svg" alt="Wake Tech Logo" class="nav-logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/hourly">Hourly</a></li>
+                <li><a href="/forecast">Forecast</a></li>
+            </ul>
+        </nav>
+
+        <div class="container">
+            
+<h2>7-Day Forecast for Cary</h2>
+
+<div class="seven-day-forecast">
+    
+    <div class="forecast-day 0">
+            <p>2025-04-30</p>
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Cloudy">
+            <p>Cloudy</p>
+            <p>86¬∞ / 62¬∞</p>
+        
+    </div>
+    
+    <div class="forecast-day 1">
+            <p>2025-05-01</p>
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Cloudy">
+            <p>Cloudy</p>
+            <p>87¬∞ / 66¬∞</p>
+        
+    </div>
+    
+    <div class="forecast-day 2">
+            <p>2025-05-02</p>
+            <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="Showers">
+            <p>Showers</p>
+            <p>86¬∞ / 64¬∞</p>
+        
+    </div>
+    
+    <div class="forecast-day 3">
+            <p>2025-05-03</p>
+            <img src="http://openweathermap.org/img/wn/09d@2x.png" alt="Showers">
+            <p>Showers</p>
+            <p>77¬∞ / 59¬∞</p>
+        
+    </div>
+    
+    <div class="forecast-day 4">
+            <p>2025-05-04</p>
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Cloudy">
+            <p>Cloudy</p>
+            <p>66¬∞ / 52¬∞</p>
+        
+    </div>
+    
+    <div class="forecast-day 5">
+            <p>2025-05-05</p>
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Cloudy">
+            <p>Cloudy</p>
+            <p>70¬∞ / 50¬∞</p>
+        
+    </div>
+    
+    <div class="forecast-day 6">
+            <p>2025-05-06</p>
+            <img src="http://openweathermap.org/img/wn/03d@2x.png" alt="Cloudy">
+            <p>Cloudy</p>
+            <p>70¬∞ / 49¬∞</p>
+        
+    </div>
+    
+</div>
+
+        </div>
+
+        <!-- <script src="/static/js/update_home.js"></script> -->
+    
+
+</body></html>Ytext/htmlP_http://127.0.0.1:5000/forecast¢’_WebResourceResponseUutf-8O>/* Revised CSS: Resolved Conflicts and Removed Redundant Overrides */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+    font-family: -apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    background-color: rgba(24, 73, 233, 0.8);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #1d1d1f;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-logo {
+    height: 80px;
+    width: auto;
+    margin-right: 10px;
+    display: block;
+    visibility: visible;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    margin-left: auto;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: rgb(237, 240, 243);
+    text-decoration: none;
+    font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.nav-links li a:hover {
+    opacity: 0.7;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 2rem;
+    padding-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .main-weather {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .weather-icon {
+        margin: 20px 0 0 0;
+    }
+
+    .metrics {
+        justify-content: center;
+    }
+
+    .forecast-day,
+    .hour-block {
+        flex: 1 1 100%;
+    }
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0 30px;
+}
+
+.search-bar input,
+.search-bar button {
+    font-size: 17px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-bar input {
+    padding: 12px 16px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: #1d1d1f;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.search-bar input:focus {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.search-bar button {
+    padding: 12px 24px;
+    margin-left: 10px;
+    background-color: #0071e3;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #0077ed;
+    transform: scale(1.02);
+}
+
+.main-weather,
+.weather-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 40px;
+    padding: 35px;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.weather-info {
+    flex: 1;
+    margin-left: 30px;
+    align-items: center;
+}
+
+.weather-info .location {
+    font-size: 32px;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #1d1d1f;
+}
+
+.location a,
+.weather-info .location a {
+    color: #0066cc;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.location a:hover {
+    color: #004080;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.weather-info .temp {
+    font-size: 70px;
+    margin: 5px 0;
+    font-weight: 500;
+    color: #1d1d1f;
+    letter-spacing: -0.05em;
+}
+
+.weather-info .description {
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: #86868b;
+}
+
+.weather-info .weather-icon,
+.weather-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+    width: 120px;
+    height: auto;
+}
+
+.weather-info .weather-icon img,
+.weather-icon img {
+    height: 150px;
+    width: auto;
+}
+
+.metrics {
+    display: flex;
+    gap: 25px;
+    color: #515154;
+    font-size: 17px;
+}
+
+.hourly-forecast,
+.daily-forecast,
+.seven-day-forecast {
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    gap: 15px;
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    scrollbar-width: none;
+}
+
+.hourly-forecast::-webkit-scrollbar,
+.daily-forecast::-webkit-scrollbar,
+.seven-day-forecast::-webkit-scrollbar {
+    display: none;
+}
+
+.hour,
+.hour-block {
+    text-align: center;
+    min-width: 70px;
+    padding: 15px 10px;
+    border-radius: 12px;
+    transition: all 0.3s;
+}
+
+.hour-block {
+    flex: 1 1 calc(25% - 16px);
+    min-width: 180px;
+    background-color: #f0f0f5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.hour-block img {
+    height: 48px;
+    margin: 10px 0;
+}
+
+.hour-time {
+    font-weight: 600;
+    font-size: 16px;
+    color: #0071e3;
+}
+
+.hour-temp {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.hour-desc {
+    font-size: 14px;
+    color: #86868b;
+    margin: 6px 0;
+}
+
+.hour-metrics {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #515154;
+}
+
+.settings-form {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1d1d1f;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fafafa;
+}
+
+.btn-save {
+    background-color: #0071e3;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #005bb5;
+}Xtext/cssOäbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ"'-.4567STUVWXYZ[\]^_`abcdefghimnU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1Ä ÄÄ	ÄÄ!ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_4http://127.0.0.1:5000/static/css/apple-styles-v2.css“/012Z$classnameX$classesUNSURL¢13XNSObject#A∆·W£ØR¸ »”89:FRWNS.keysZNS.objects´;<=>?@ABCDEÄ	Ä
+ÄÄÄÄÄÄÄÄÄ´GHIJKLMNOPQÄÄÄÄÄÄÄÄÄÄÄÄVServer_Access-Control-Allow-Origin\Content-Type]Last-ModifiedTEtagX__hhaa__TDate_Content-Disposition^Content-Length]Cache-ControlZConnection_Werkzeug/3.1.3 Python/3.13.2Q*_text/css; charset=utf-8_Sat, 19 Apr 2025 04:30:19 GMT_$"1745037019.2927225-5694-3177455074"_»
+
+YnBsaXN0MDDaAQIDBAUGBwgJCgsNDxETFRcZGx1aQ29ubmVjdGlvblZTZXJ2ZXJfEBtBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW5dTGFzdC1Nb2RpZmllZFxDb250ZW50LVR5cGVURGF0ZV8QE0NvbnRlbnQtRGlzcG9zaXRpb25eQ29udGVudC1MZW5ndGhdQ2FjaGUtQ29udHJvbFRFdGFnoQxVY2xvc2WhDl8QHFdlcmt6ZXVnLzMuMS4zIFB5dGhvbi8zLjEzLjKhEFEqoRJfEB1TYXQsIDE5IEFwciAyMDI1IDA0OjMwOjE5IEdNVKEUXxAXdGV4dC9jc3M7IGNoYXJzZXQ9dXRmLTihFl8QPFdlZCwgMzAgQXByIDIwMjUgMTk6MTY6NTcgR01ULCBXZWQsIDMwIEFwciAyMDI1IDE5OjE2OjU3IEdNVKEYXxAkaW5saW5lOyBmaWxlbmFtZT1hcHBsZS1zdHlsZXMtdjIuY3NzoRpUNTY5NKEcWG5vLWNhY2hloR5fECQiMTc0NTAzNzAxOS4yOTI3MjI1LTU2OTQtMzE3NzQ1NTA3NCIACAAdACgALwBNAFsAaABtAIMAkgCgAKUApwCtAK8AzgDQANIA1AD0APYBEAESAVEBUwF6AXwBgQGDAYwBjgAAAAAAAAIBAAAAAAAAAB8AAAAAAAAAAAAAAAAAAAG1_<Wed, 30 Apr 2025 19:16:57 GMT, Wed, 30 Apr 2025 19:16:57 GMT_$inline; filename=apple-styles-v2.cssT5694Xno-cacheUclose“/0jk_NSMutableDictionary£jl3\NSDictionaryXtext/css“/0op_NSHTTPURLResponse£qr3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d â è ™ Ã Ó Ò8?adgâ´Æ∞≤¥∂∏∫ºæø¡√≈«Œ÷‚‰ÊË$/8>AJSUW^fq}ÅÉÖáâãçèëìü°£•ß©´≠Ø±≥µ∑æ‹È˜¸
+ /=HgiÉ£ ñ’¸
++/<EJ^bv             s              Ñ_4http://127.0.0.1:5000/static/css/apple-styles-v2.css’O–<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 304 105" style="enable-background:new 0 0 304 105;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#A99767;}
+</style>
+<g id="WT_logo-white">
+	<path id="Path_1" class="st0" d="M2.9,64.5c0-0.2-0.1-0.5-0.1-0.7c0-0.9,0.7-1.5,1.6-1.5c0.7,0,1.4,0.5,1.6,1.3L13.4,85l7.1-21.5
+		c0.2-0.7,0.8-1.2,1.5-1.2h0.2c0.7,0,1.3,0.5,1.5,1.2L30.8,85l7.5-21.5c0.2-0.7,0.8-1.2,1.5-1.2c0.8,0,1.5,0.7,1.6,1.5
+		c0,0.3,0,0.5-0.2,0.7l-8.6,24c-0.2,0.7-0.8,1.3-1.6,1.3h-0.2c-0.8,0-1.4-0.6-1.6-1.3l-7-20.8l-7,20.8c-0.2,0.7-0.8,1.3-1.6,1.3
+		h-0.2c-0.8,0-1.4-0.6-1.6-1.3l-8.7-24H2.9z"/>
+	<path id="Path_2" class="st0" d="M42,87.4l11-24c0.3-0.8,1.1-1.4,1.9-1.4h0.2c0.9,0,1.6,0.5,1.9,1.4l11,23.9
+		c0.1,0.2,0.2,0.5,0.2,0.8c0,0.8-0.6,1.5-1.5,1.5l0,0c-0.7,0-1.3-0.5-1.5-1.1l-2.8-6.2H47.6l-2.8,6.3c-0.2,0.6-0.8,1-1.5,1
+		c-0.8,0-1.4-0.6-1.4-1.4C41.9,87.9,41.9,87.6,42,87.4L42,87.4z M61.1,79.5l-6.2-13.8l-6.2,13.8H61.1z"/>
+	<path id="Path_3" class="st0" d="M75.1,63.8c0-0.8,0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5l0,0v14.8l15.4-15.8c0.3-0.3,0.7-0.5,1.2-0.5
+		c0.8,0,1.5,0.7,1.5,1.5c0,0.4-0.2,0.8-0.5,1.1l-9.6,9.5l10.3,12.7c0.3,0.3,0.4,0.7,0.4,1.1c0,0.8-0.7,1.5-1.5,1.5
+		c-0.5,0-1-0.3-1.2-0.7L84,76.5l-5.8,5.8v5.9c0,0.8-0.7,1.5-1.5,1.5s-1.5-0.7-1.5-1.5l0,0V63.9L75.1,63.8z"/>
+	<path id="Path_4" class="st0" d="M103.9,87.9V64c0-0.8,0.7-1.5,1.5-1.5h16.8c0.8,0,1.4,0.6,1.4,1.4s-0.6,1.4-1.4,1.4H107v9.2h13.5
+		c0.8,0,1.4,0.6,1.4,1.4s-0.6,1.4-1.4,1.4l0,0H107v9.5h15.4c0.8,0,1.4,0.7,1.4,1.4c0,0.7-0.6,1.3-1.4,1.4h-17
+		c-0.8,0-1.5-0.7-1.5-1.5V87.9z"/>
+	<path id="Path_5" class="st0" d="M188,65.3h-7.8c-0.8,0-1.4-0.6-1.4-1.4c0-0.8,0.6-1.4,1.4-1.4H199c0.8,0,1.4,0.6,1.4,1.4
+		s-0.7,1.4-1.4,1.4h-7.8v22.8c0,0.9-0.7,1.5-1.5,1.5c-0.9,0-1.5-0.7-1.5-1.5V65.3H188z"/>
+	<path id="Path_6" class="st0" d="M210.3,87.9V64c0-0.8,0.7-1.5,1.5-1.5h16.8c0.8,0,1.4,0.6,1.4,1.4s-0.6,1.4-1.4,1.4h-15.2v9.2
+		h13.5c0.8,0,1.4,0.6,1.4,1.4s-0.6,1.4-1.4,1.4l0,0h-13.5v9.5h15.4c0.8,0,1.4,0.6,1.4,1.4s-0.6,1.4-1.4,1.4l0,0h-17
+		c-0.8,0-1.5-0.7-1.5-1.5V87.9z"/>
+	<path id="Path_7" class="st0" d="M238,76L238,76c0-7.7,5.7-14,13.7-14c3.5,0,7,1.2,9.6,3.5c0.4,0.3,0.6,0.8,0.6,1.2
+		c0,0.8-0.7,1.5-1.5,1.5c-0.4,0-0.7-0.1-1-0.3c-2.1-2-4.9-3.1-7.8-3.1c-6,0-10.5,4.9-10.5,11.1l0,0c0,6.3,4.5,11.2,10.5,11.2
+		c3,0,5.9-1.1,8-3.3c0.3-0.3,0.6-0.4,1-0.4c0.8,0,1.4,0.7,1.5,1.5c0,0.4-0.2,0.8-0.5,1.1c-2.7,2.6-6.3,4.1-10,4
+		C243.8,90,238.1,83.9,238,76L238,76z"/>
+	<path id="Path_8" class="st0" d="M272.6,63.8c0-0.8,0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5l0,0v10.7h15.6V63.8c0-0.8,0.7-1.5,1.5-1.5
+		s1.5,0.7,1.5,1.5v24.3c0,0.8-0.7,1.5-1.5,1.5s-1.5-0.7-1.5-1.5l0,0V77.3h-15.6v10.8c0,0.8-0.7,1.5-1.5,1.5s-1.5-0.7-1.5-1.5l0,0
+		V63.8L272.6,63.8z"/>
+	<g id="Group_1">
+		<path id="Path_9" class="st1" d="M140.8,35.5c-0.6,0-1.1-0.3-1.4-0.8l-10.5-18.2c-0.4-0.8-0.2-1.7,0.6-2.1s1.7-0.2,2.1,0.6
+			l10.5,18.2c0.4,0.8,0.2,1.7-0.6,2.2c-0.2,0.1-0.5,0.2-0.8,0.2l0,0L140.8,35.5z"/>
+	</g>
+	<g id="Group_2">
+		<path id="Path_10" class="st1" d="M137.7,41.6c-0.3,0-0.5-0.1-0.7-0.4l-7.4-12.8c-0.2-0.4,0-0.9,0.3-1.1c0.4-0.2,0.9,0,1.1,0.3
+			l0,0l7.4,12.8c0.2,0.4,0,0.9-0.3,1.1c-0.1,0-0.3,0.1-0.4,0l0,0L137.7,41.6z"/>
+	</g>
+	<g id="Group_3">
+		<path id="Path_11" class="st1" d="M144.3,41.6c-0.3,0-0.5,0-0.8-0.2c-0.8-0.4-1-1.4-0.6-2.2l3.5-6.1c0.4-0.8,1.4-1,2.1-0.6
+			s1,1.4,0.6,2.1l-3.5,6.1c-0.3,0.5-0.8,0.8-1.4,0.8l0,0L144.3,41.6z"/>
+	</g>
+	<g id="Group_4">
+		<path id="Path_12" class="st1" d="M158.3,41.6c-0.6,0-1.1-0.3-1.4-0.8l-21-36.4c-0.5-0.7-0.2-1.7,0.5-2.2s1.7-0.2,2.2,0.5l0,0
+			l21,36.4c0.4,0.7,0.2,1.7-0.6,2.1l0,0c-0.2,0.1-0.5,0.2-0.8,0.2l0,0L158.3,41.6z"/>
+	</g>
+	<g id="Group_5">
+		<path id="Path_13" class="st1" d="M161.7,35.5c-0.3,0-0.5,0-0.8-0.2c-0.8-0.4-1-1.4-0.6-2.2l0,0l10.5-18.2c0.4-0.8,1.4-1,2.1-0.6
+			c0.8,0.4,1,1.4,0.6,2.1l0,0L163,34.6c-0.3,0.5-0.8,0.8-1.4,0.8l0,0L161.7,35.5z"/>
+	</g>
+	<g id="Group_6">
+		<path id="Path_14" class="st1" d="M158.3,28.7c-0.1,0-0.3,0-0.4-0.1c-0.4-0.2-0.5-0.7-0.3-1.1l7-12.1c0.2-0.4,0.7-0.5,1.1-0.3l0,0
+			c0.4,0.2,0.5,0.7,0.3,1.1l-7,12.1C158.8,28.5,158.6,28.7,158.3,28.7L158.3,28.7L158.3,28.7z"/>
+	</g>
+	<g id="Group_7">
+		<path id="Path_15" class="st1" d="M154.7,23.4c-0.3,0-0.5,0-0.8-0.2c-0.8-0.4-1-1.4-0.6-2.1l0,0l10.5-18.2c0.4-0.8,1.4-1,2.2-0.6
+			s1,1.4,0.6,2.2l-10.5,18.3c-0.3,0.5-0.8,0.8-1.4,0.8l0,0V23.4z"/>
+	</g>
+	<g id="Group_8">
+		<path id="Path_16" class="st1" d="M164.8,41.6c-0.1,0-0.3,0-0.4,0c-0.4-0.2-0.5-0.7-0.3-1.1l7.4-12.8c0.2-0.4,0.7-0.5,1.1-0.3l0,0
+			c0.4,0.2,0.5,0.7,0.3,1.1l-7.4,12.9c-0.2,0.2-0.4,0.4-0.7,0.4l0,0L164.8,41.6z"/>
+	</g>
+	<g id="Group_9">
+		<path id="Path_17" class="st1" d="M144.3,28.7c-0.3,0-0.5-0.1-0.7-0.4l-7-12.1c-0.2-0.4,0-0.9,0.3-1.1c0.4-0.2,0.9,0,1.1,0.3l0,0
+			l7,12.1c0.2,0.4,0,0.9-0.3,1.1l0,0C144.6,28.6,144.4,28.6,144.3,28.7L144.3,28.7L144.3,28.7z"/>
+	</g>
+	<g id="Group_10">
+		<path id="Path_18" class="st0" d="M175.2,48.5h-47.9c-0.9,0-1.6-0.7-1.6-1.6c0-0.9,0.7-1.6,1.6-1.6h47.9c0.9,0,1.6,0.7,1.6,1.6
+			S176.1,48.5,175.2,48.5L175.2,48.5L175.2,48.5z"/>
+	</g>
+	<g id="Group_11">
+		<path id="Path_19" class="st0" d="M172,52.4h-41.5c-0.4,0-0.8-0.3-0.8-0.8c0-0.4,0.3-0.8,0.8-0.8l0,0H172c0.4,0,0.8,0.4,0.8,0.8
+			C172.8,52,172.5,52.3,172,52.4z"/>
+	</g>
+	<g id="Group_12">
+		<path id="Path_20" class="st0" d="M151.2,102.7c-0.9,0-1.6-0.7-1.6-1.6l0,0V56.7c0-0.9,0.7-1.6,1.6-1.6s1.6,0.7,1.6,1.6v44.4
+			C152.8,102,152.1,102.7,151.2,102.7L151.2,102.7z"/>
+	</g>
+	<path id="Path_21" class="st0" d="M156.6,55.3c-0.4,0-0.8,0.4-0.8,0.8v39c0,0.4,0.3,0.8,0.8,0.8c0.4,0,0.8-0.3,0.8-0.8l0,0v-39
+		C157.4,55.7,157.1,55.3,156.6,55.3L156.6,55.3z"/>
+	<path id="Path_22" class="st0" d="M145.9,55.3c-0.4,0-0.8,0.4-0.8,0.8v39c0,0.4,0.3,0.8,0.8,0.8c0.4,0,0.8-0.3,0.8-0.8l0,0v-39
+		C146.7,55.7,146.3,55.3,145.9,55.3z"/>
+	<g id="Group_13">
+		<path id="Path_23" class="st0" d="M297.3,62.4c0-0.4,0-0.9,0.3-1.3c0.2-0.4,0.4-0.8,0.7-1.1c0.3-0.3,0.7-0.5,1.1-0.7
+			s0.9-0.3,1.3-0.3s0.9,0,1.3,0.3c0.4,0.2,0.8,0.4,1.1,0.7c0.3,0.3,0.5,0.7,0.7,1.1c0.4,0.8,0.4,1.8,0,2.6c-0.2,0.4-0.4,0.8-0.7,1.1
+			c-0.3,0.3-0.7,0.5-1.1,0.7c-0.8,0.4-1.8,0.4-2.6,0c-0.8-0.3-1.4-1-1.8-1.8C297.4,63.3,297.3,62.8,297.3,62.4z M297.8,62.4
+			c0,0.4,0,0.8,0.2,1.1c0.3,0.7,0.8,1.2,1.5,1.5s1.5,0.3,2.2,0s1.2-0.8,1.5-1.5c0.3-0.7,0.3-1.5,0-2.2s-0.8-1.2-1.5-1.5
+			c-0.4-0.1-0.7-0.2-1.1-0.2c-1.2,0-2.2,0.7-2.6,1.7C297.9,61.7,297.8,62,297.8,62.4z M299.9,64.4h-0.5v-3.9h1.5
+			c0.3,0,0.7,0,0.9,0.3c0.2,0.2,0.3,0.5,0.3,0.8c0,0.2,0,0.3,0,0.5c0,0.1-0.1,0.2-0.2,0.3c0,0-0.2,0.2-0.3,0.2c-0.1,0-0.2,0-0.4,0.1
+			l1.2,1.7h-0.6l-1.2-1.7h-0.7L299.9,64.4L299.9,64.4L299.9,64.4z M299.9,62.2h0.6c0.1,0,0.3,0,0.4,0s0.2,0,0.4,0
+			c0.1,0,0.2-0.1,0.3-0.2c0-0.1,0.1-0.2,0.1-0.4c0-0.1,0-0.2,0-0.3c0,0-0.1-0.1-0.2-0.2c0,0-0.2,0-0.3,0c-0.1,0-0.2,0-0.3,0H300v1.3
+			l0,0L299.9,62.2z"/>
+	</g>
+</g>
+</svg>
+]image/svg+xmlOòbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ"'-.4567STUVWXYZ[\]^_`abcdefghimnU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1Ä ÄÄ	ÄÄ!ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_6http://127.0.0.1:5000/static/images/wake-tech-logo.svg“/012Z$classnameX$classesUNSURL¢13XNSObject#A∆·W£Øo »”89:FRWNS.keysZNS.objects´;<=>?@ABCDEÄ	Ä
+ÄÄÄÄÄÄÄÄÄ´GHIJKLMNOPQÄÄÄÄÄÄÄÄÄÄÄÄVServer_Access-Control-Allow-Origin\Content-Type]Last-ModifiedTEtagX__hhaa__TDate_Content-Disposition^Content-Length]Cache-ControlZConnection_Werkzeug/3.1.3 Python/3.13.2Q*_image/svg+xml; charset=utf-8_Thu, 17 Apr 2025 12:42:01 GMT_#"1744893721.978472-6864-4192083637"_Ã
+
+YnBsaXN0MDDaAQIDBAUGBwgJCgsNDxETFRcZGx1aQ29ubmVjdGlvblZTZXJ2ZXJfEBtBY2Nlc3MtQ29udHJvbC1BbGxvdy1PcmlnaW5dTGFzdC1Nb2RpZmllZFxDb250ZW50LVR5cGVURGF0ZV8QE0NvbnRlbnQtRGlzcG9zaXRpb25eQ29udGVudC1MZW5ndGhdQ2FjaGUtQ29udHJvbFRFdGFnoQxVY2xvc2WhDl8QHFdlcmt6ZXVnLzMuMS4zIFB5dGhvbi8zLjEzLjKhEFEqoRJfEB1UaHUsIDE3IEFwciAyMDI1IDEyOjQyOjAxIEdNVKEUXxAcaW1hZ2Uvc3ZnK3htbDsgY2hhcnNldD11dGYtOKEWXxA8V2VkLCAzMCBBcHIgMjAyNSAxOToxNjo1NyBHTVQsIFdlZCwgMzAgQXByIDIwMjUgMTk6MTY6NTcgR01UoRhfECNpbmxpbmU7IGZpbGVuYW1lPXdha2UtdGVjaC1sb2dvLnN2Z6EaVDY4NjShHFhuby1jYWNoZaEeXxAjIjE3NDQ4OTM3MjEuOTc4NDcyLTY4NjQtNDE5MjA4MzYzNyIACAAdACgALwBNAFsAaABtAIMAkgCgAKUApwCtAK8AzgDQANIA1AD0APYBFQEXAVYBWAF+AYABhQGHAZABkgAAAAAAAAIBAAAAAAAAAB8AAAAAAAAAAAAAAAAAAAG4_<Wed, 30 Apr 2025 19:16:57 GMT, Wed, 30 Apr 2025 19:16:57 GMT_#inline; filename=wake-tech-logo.svgT6864Xno-cacheUclose“/0jk_NSMutableDictionary£jl3\NSDictionary]image/svg+xml“/0op_NSHTTPURLResponse£qr3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d â è ™ Ã Ó Ò8?adgâ´Æ∞≤¥∂∏∫ºæø¡√≈«Œ÷‚‰ÊË!&1:@CLUWY`hsÅÉÖáâãçèëìï°£•ß©´≠Ø±≥µ∑π¿ﬁÎ˘˛"1?Jikä™–†ﬂ
+48ESXlpÑ             s              í_6http://127.0.0.1:5000/static/images/wake-tech-logo.svg    1 < Z l Ç ô ® Æ
+¿
+ 
+À
+Ï
+Ô
+˙!X!a)Ô*&*1EEMØ                           MË

@@ -1,0 +1,66 @@
+<!-- This is the error page template for the Weather App. It provides a user-friendly message when an error occurs. -->
+<!-- The page includes a header, a main content area with an error message, and a footer. -->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Oops! Weather Interruption</title>
+        <!-- Main CSS for shared styles -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        <!-- Error-specific CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/error.css') }}">
+    </head>
+
+    <body>
+        <header>
+            <div class="container">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/storm-icon.png') }}" alt="Weather App Logo">
+                    <h1>Weather App</h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('main.home') }}">Home</a></li>
+                        <li><a href="{{ url_for('main.settings') }}">Settings</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="container">
+            <div class="error-container">
+                <img src="{{ url_for('static', filename='images/storm-icon.png') }}" alt="Storm Icon"
+                    class="storm-icon">
+                <h2 class="error-title">Oops! Looks like we're experiencing turbulent weather conditions.</h2>
+                <p class="error-message">
+                    Our weather satellites couldn't retrieve the data you requested.
+                    This could be due to a temporary outage or an issue with the location you entered.
+                </p>
+
+                <div>
+                    <a href="{{ url_for('main.home') }}" class="home-button">Return to Homepage</a>
+                    <a href="javascript:history.back()" class="home-button">Go Back</a>
+                </div>
+
+                <div class="suggestions">
+                    <h3>Troubleshooting Suggestions:</h3>
+                    <ul>
+                        <li>Check if you've entered a valid city name</li>
+                        <li>Try a different city nearby</li>
+                        <li>Wait a few minutes and try again</li>
+                        <li>Make sure you have an active internet connection</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Weather App. All rights reserved.</p>
+            </div>
+        </footer>
+    </body>
+
+</html>
