@@ -1,0 +1,20 @@
+
+================================================================ test session starts ================================================================
+platform darwin -- Python 3.13.2, pytest-8.3.5, pluggy-1.5.0 -- /Users/tony/Documents/GitHub/group-project-t6/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /Users/tony/Documents/GitHub/group-project-t6
+plugins: playwright-0.7.0, base-url-2.1.0, mock-3.14.0
+collected 10 items                                                                                                                                  
+
+tests/unit/test_loc_api.py::TestLocService::test_fetch_location_city_state PASSED
+tests/unit/test_loc_api.py::TestLocService::test_fetch_location_empty_result PASSED
+tests/unit/test_loc_api.py::TestLocService::test_fetch_location_exception PASSED
+tests/unit/test_loc_api.py::TestLocService::test_fetch_location_no_us_result PASSED
+tests/unit/test_loc_api.py::TestLocService::test_fetch_location_zip_code PASSED
+tests/unit/test_loc_api.py::TestLocService::test_get_lat_lon_city_state PASSED
+tests/unit/test_loc_api.py::TestLocService::test_get_lat_lon_empty PASSED
+tests/unit/test_loc_api.py::TestLocService::test_get_lat_lon_zip PASSED
+tests/unit/test_loc_api.py::TestLocService::test_init PASSED
+tests/unit/test_loc_api.py::TestLocService::test_show_lat_lon PASSED
+
+================================================================ 10 passed in 0.23s =================================================================

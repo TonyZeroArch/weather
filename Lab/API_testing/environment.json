@@ -1,0 +1,38 @@
+{
+  "id": "8c4fa4d0-cc76-4c7a-abcd-123456789012",
+  "name": "Open-Meteo Environment",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.open-meteo.com/v1",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "latitude",
+      "value": "35.7915",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "longitude",
+      "value": "-78.7811",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "timezone",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    },
+    {
+      "key": "elevation",
+      "value": "",
+      "type": "default",
+      "enabled": true
+    }
+  ],
+  "description": "Environment variables for Open-Meteo Weather API tests",
+  "type": "default"
+}

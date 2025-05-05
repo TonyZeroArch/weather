@@ -1,0 +1,168 @@
+{
+  "info": {
+    "name": "Open-Meteo Weather API",
+    "description": "Collection for testing the Open-Meteo Weather Forecast API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get 2-Day Weather Forecast",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.open-meteo.com/v1/forecast?latitude=35.7915&longitude=-78.7811&hourly=temperature_2m,weather_code,precipitation_probability&daily=sunrise,sunset&timezone=auto&forecast_days=2&wind_speed_unit=mph&temperature_unit=fahrenheit",
+          "protocol": "https",
+          "host": [
+            "api",
+            "open-meteo",
+            "com"
+          ],
+          "path": [
+            "v1",
+            "forecast"
+          ],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "35.7915",
+              "description": "Latitude of the location (North Carolina)"
+            },
+            {
+              "key": "longitude",
+              "value": "-78.7811",
+              "description": "Longitude of the location (North Carolina)"
+            },
+            {
+              "key": "hourly",
+              "value": "temperature_2m,weather_code,precipitation_probability",
+              "description": "Hourly weather variables to include"
+            },
+            {
+              "key": "daily",
+              "value": "sunrise,sunset",
+              "description": "Daily weather variables to include"
+            },
+            {
+              "key": "timezone",
+              "value": "auto",
+              "description": "Automatically detect timezone from coordinates"
+            },
+            {
+              "key": "forecast_days",
+              "value": "2",
+              "description": "Number of days to forecast"
+            },
+            {
+              "key": "wind_speed_unit",
+              "value": "mph",
+              "description": "Wind speed unit (miles per hour)"
+            },
+            {
+              "key": "temperature_unit",
+              "value": "fahrenheit",
+              "description": "Temperature unit (Fahrenheit)"
+            }
+          ]
+        },
+        "description": "Get a 2-day weather forecast for the specified location (North Carolina) with hourly temperature, weather code, and precipitation probability, as well as daily sunrise and sunset times."
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Test response status code",
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "// Parse response",
+              "const responseData = pm.response.json();",
+              "",
+              "// Test response structure",
+              "pm.test(\"Response contains expected properties\", function () {",
+              "    pm.expect(responseData).to.have.property('latitude');",
+              "    pm.expect(responseData).to.have.property('longitude');",
+              "    pm.expect(responseData).to.have.property('timezone');",
+              "    pm.expect(responseData).to.have.property('hourly');",
+              "    pm.expect(responseData).to.have.property('daily');",
+              "});",
+              "",
+              "// Test hourly data structure",
+              "pm.test(\"Hourly data contains expected properties\", function () {",
+              "    pm.expect(responseData.hourly).to.have.property('time');",
+              "    pm.expect(responseData.hourly).to.have.property('temperature_2m');",
+              "    pm.expect(responseData.hourly).to.have.property('weather_code');",
+              "    pm.expect(responseData.hourly).to.have.property('precipitation_probability');",
+              "});",
+              "",
+              "// Test daily data structure",
+              "pm.test(\"Daily data contains expected properties\", function () {",
+              "    pm.expect(responseData.daily).to.have.property('time');",
+              "    pm.expect(responseData.daily).to.have.property('sunrise');",
+              "    pm.expect(responseData.daily).to.have.property('sunset');",
+              "});",
+              "",
+              "// Test data length matches forecast days",
+              "pm.test(\"Hourly data length matches forecast days\", function () {",
+              "    // 2 days * 24 hours = 48 hours",
+              "    pm.expect(responseData.hourly.time.length).to.equal(48);",
+              "});",
+              "",
+              "// Test daily data length matches forecast days",
+              "pm.test(\"Daily data length matches forecast days\", function () {",
+              "    pm.expect(responseData.daily.time.length).to.equal(2);",
+              "});",
+              "",
+              "// Test timezone is America/New_York",
+              "pm.test(\"Timezone is correct\", function () {",
+              "    pm.expect(responseData.timezone).to.equal(\"America/New_York\");",
+              "});",
+              "",
+              "// Test latitude and longitude match input",
+              "pm.test(\"Location coordinates match\", function () {",
+              "    pm.expect(responseData.latitude).to.be.approximately(35.7915, 0.001);",
+              "    pm.expect(responseData.longitude).to.be.approximately(-78.7811, 0.001);",
+              "});",
+              "",
+              "// Set environment variables for potential use in other requests",
+              "pm.environment.set(\"timezone\", responseData.timezone);",
+              "pm.environment.set(\"elevation\", responseData.elevation);",
+              ""
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.open-meteo.com/v1",
+      "type": "string"
+    }
+  ]
+}

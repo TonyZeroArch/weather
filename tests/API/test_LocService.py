@@ -7,55 +7,48 @@ from app.services.loc_api import LocService
 class TestLocService:
 
     def setup_method(self):
-        self.loc_service = LocService()
+        # Initialize with empty location dict
+        self.loc_service = LocService({})
 
     def test_init(self):
-        """Test initialization of LocService"""
+        """Test initialization of LocService with empty location"""
         assert self.loc_service.loc == {
             "postal_code": None,
             "city": None,
             "state": None,
         }
 
-    def test_validate_location_postal_code(self):
-        """Test validation of postal code"""
-        assert self.loc_service.validate_location("27516") == True
-        assert self.loc_service.loc["postal_code"] == "27516"
-        assert self.loc_service.loc["city"] is None
-        assert self.loc_service.loc["state"] is None
-
-    def test_validate_location_city_state(self):
-        """Test validation of city,state"""
-        assert self.loc_service.validate_location("Cary, NC") == True
-        assert self.loc_service.loc["postal_code"] is None
-        assert self.loc_service.loc["city"] == "Cary"
-        assert self.loc_service.loc["state"] == "NC"
-
-    def test_validate_location_invalid(self):
-        """Test validation of invalid input"""
-        assert self.loc_service.validate_location("invalid") == False
-        assert self.loc_service.validate_location("Cary") == False
-        assert self.loc_service.validate_location("Cary NC") == False  # Missing comma
-        assert (
-            self.loc_service.validate_location("Cary, North Carolina") == False
-        )  # Full state name
-        assert (
-            self.loc_service.validate_location("1234") == False
-        )  # Too short for postal code
+    def test_init_with_location(self):
+        """Test initialization with location data"""
+        location_data = {"postal_code": "27516", "city": "Chapel Hill", "state": "NC"}
+        service = LocService(location_data)
+        assert service.loc["postal_code"] == "27516"
+        assert service.loc["city"] == "Chapel Hill"
+        assert service.loc["state"] == "NC"
 
     @patch("requests.get")
-    def test_get_location_str_postal_code(self, mock_get):
-        """Test get_location_str with postal code"""
+    def test_fetch_location_postal_code(self, mock_get):
+        """Test fetch_location with postal code params"""
         # Mock the API response
         mock_response = Mock()
-        mock_response.json.return_value = [{"lat": "35.9132", "lon": "-79.0558"}]
+        mock_response.json.return_value = [
+            {
+                "lat": "35.9132",
+                "lon": "-79.0558",
+                "display_name": "27516, Chapel Hill, Orange County, North Carolina, United States",
+            }
+        ]
         mock_get.return_value = mock_response
 
-        # Test with a postal code
-        result = self.loc_service.get_location_str("27516")
+        # Test with postal code params
+        params = {"postalcode": "27516", "format": "json"}
+        result = self.loc_service.fetch_location(params, s_type=0)
 
-        # Verify the result
-        assert result == {"lat": "35.9132", "lon": "-79.0558"}
+        # Verify the result includes lat and lon
+        assert "lat" in result
+        assert "lon" in result
+        assert result["lat"] == "35.9132"
+        assert result["lon"] == "-79.0558"
 
         # Verify the API was called with correct parameters
         mock_get.assert_called_once()
@@ -64,74 +57,123 @@ class TestLocService:
         assert kwargs["params"]["format"] == "json"
 
     @patch("requests.get")
-    def test_get_location_str_city_state(self, mock_get):
-        """Test get_location_str with city,state"""
+    def test_fetch_location_city_state(self, mock_get):
+        """Test fetch_location with city/state params"""
         # Mock the API response
         mock_response = Mock()
-        mock_response.json.return_value = [{"lat": "35.7915", "lon": "-78.7811"}]
+        mock_response.json.return_value = [
+            {
+                "lat": "35.7915",
+                "lon": "-78.7811",
+                "display_name": "Cary, Wake County, North Carolina, United States",
+            }
+        ]
         mock_get.return_value = mock_response
 
-        # Test with a city,state
-        result = self.loc_service.get_location_str("Cary, NC")
+        # Test with city/state params
+        params = {"city": "Cary", "state": "NC", "format": "json"}
+        result = self.loc_service.fetch_location(params, s_type=1)
 
         # Verify the result
-        assert result == {"lat": "35.7915", "lon": "-78.7811"}
+        assert "lat" in result
+        assert "lon" in result
+        assert result["lat"] == "35.7915"
+        assert result["lon"] == "-78.7811"
 
         # Verify the API was called with correct parameters
         mock_get.assert_called_once()
         args, kwargs = mock_get.call_args
         assert kwargs["params"]["city"] == "Cary"
         assert kwargs["params"]["state"] == "NC"
-        assert kwargs["params"]["format"] == "json"
 
     @patch("requests.get")
-    def test_get_location_json_postal_code(self, mock_get):
-        """Test get_location_json with postal code"""
+    def test_get_lat_lon_postal_code(self, mock_get):
+        """Test get_lat_lon with postal code"""
         # Mock the API response
         mock_response = Mock()
-        mock_response.json.return_value = [{"lat": "35.9132", "lon": "-79.0558"}]
+        mock_response.json.return_value = [
+            {
+                "lat": "35.9132",
+                "lon": "-79.0558",
+                "display_name": "27516, Chapel Hill, Orange County, North Carolina, United States",
+            }
+        ]
         mock_get.return_value = mock_response
 
         # Test with a postal code
-        location = {"postal_code": "27516", "city": None, "state": None}
-        result = self.loc_service.get_location_json(location)
+        location = {"postal_code": "27516", "city": "", "state": ""}
+        result = self.loc_service.get_lat_lon(location)
 
         # Verify the result
-        assert result == {"lat": "35.9132", "lon": "-79.0558"}
+        assert "lat" in result
+        assert "lon" in result
+        assert result["lat"] == "35.9132"
+        assert result["lon"] == "-79.0558"
 
         # Verify the API was called with correct parameters
         mock_get.assert_called_once()
         args, kwargs = mock_get.call_args
         assert kwargs["params"]["postalcode"] == "27516"
-        assert kwargs["params"]["format"] == "json"
 
     @patch("requests.get")
-    def test_get_location_json_city_state(self, mock_get):
-        """Test get_location_json with city,state"""
+    def test_get_lat_lon_city_state(self, mock_get):
+        """Test get_lat_lon with city/state"""
         # Mock the API response
         mock_response = Mock()
-        mock_response.json.return_value = [{"lat": "35.2271", "lon": "-80.8431"}]
+        mock_response.json.return_value = [
+            {
+                "lat": "35.2271",
+                "lon": "-80.8431",
+                "display_name": "Charlotte, Mecklenburg County, North Carolina, United States",
+            }
+        ]
         mock_get.return_value = mock_response
 
-        # Test with a city,state
-        location = {"postal_code": None, "city": "Charlotte", "state": "NC"}
-        result = self.loc_service.get_location_json(location)
+        # Test with a city/state
+        location = {"postal_code": "", "city": "Charlotte", "state": "NC"}
+        result = self.loc_service.get_lat_lon(location)
 
         # Verify the result
-        assert result == {"lat": "35.2271", "lon": "-80.8431"}
+        assert "lat" in result
+        assert "lon" in result
+        assert result["lat"] == "35.2271"
+        assert result["lon"] == "-80.8431"
 
         # Verify the API was called with correct parameters
         mock_get.assert_called_once()
         args, kwargs = mock_get.call_args
         assert kwargs["params"]["city"] == "Charlotte"
         assert kwargs["params"]["state"] == "NC"
-        assert kwargs["params"]["format"] == "json"
 
-    def test_get_location_json_empty(self):
-        """Test get_location_json with empty data"""
-        location = {"postal_code": None, "city": None, "state": None}
-        result = self.loc_service.get_location_json(location)
+    def test_get_lat_lon_empty(self):
+        """Test get_lat_lon with empty data"""
+        location = {"postal_code": "", "city": "", "state": ""}
+        result = self.loc_service.get_lat_lon(location)
         assert result == {}
+
+    @patch("requests.get")
+    def test_show_lat_lon(self, mock_get):
+        """Test show_lat_lon method"""
+        # Mock the API response
+        mock_response = Mock()
+        mock_response.json.return_value = [
+            {
+                "lat": "35.9132",
+                "lon": "-79.0558",
+                "display_name": "27516, Chapel Hill, Orange County, North Carolina, United States",
+            }
+        ]
+        mock_get.return_value = mock_response
+
+        # Set up the location in our service
+        self.loc_service.loc = {"postal_code": "27516", "city": "", "state": ""}
+
+        # Call show_lat_lon
+        result = self.loc_service.show_lat_lon()
+
+        # Verify the result matches expected behavior
+        assert "lat" in result
+        assert "lon" in result
 
     @patch("requests.get")
     def test_api_error_handling(self, mock_get):
@@ -141,10 +183,10 @@ class TestLocService:
         mock_response.json.return_value = []
         mock_get.return_value = mock_response
 
-        # This should raise an IndexError when trying to access data[0]
-        with pytest.raises(IndexError):
-            location = {"postal_code": "00000", "city": None, "state": None}
-            self.loc_service.get_location_json(location)
+        # Should return empty dict when no results
+        location = {"postal_code": "00000", "city": "", "state": ""}
+        result = self.loc_service.get_lat_lon(location)
+        assert result == {}
 
     @patch("requests.get")
     def test_connection_error(self, mock_get):
@@ -152,7 +194,7 @@ class TestLocService:
         # Mock a connection error
         mock_get.side_effect = requests.exceptions.ConnectionError("Connection error")
 
-        # This should propagate the exception
-        with pytest.raises(requests.exceptions.ConnectionError):
-            location = {"postal_code": "27516", "city": None, "state": None}
-            self.loc_service.get_location_json(location)
+        # Should return empty dict on exception
+        location = {"postal_code": "27516", "city": "", "state": ""}
+        result = self.loc_service.get_lat_lon(location)
+        assert result == {}

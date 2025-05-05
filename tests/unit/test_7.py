@@ -242,6 +242,9 @@ def test_forecast_route(client):
     # Set up session data before request
     with client.session_transaction() as sess:
         sess["cur_location"] = mock_location
+        sess["temp_unit"] = "F"  # Add default temperature unit
+        sess["wind_unit"] = "mph"  # Add default wind unit
+        sess["precip_unit"] = "in"  # Add default precipitation unit
 
     # Make a request to the forecast endpoint
     response = client.get("/forecast")
@@ -274,6 +277,9 @@ def test_forecast_template_structure(app):
         # Set up session data before request
         with client.session_transaction() as sess:
             sess["cur_location"] = mock_location
+            sess["temp_unit"] = "F"  # Add default temperature unit
+            sess["wind_unit"] = "mph"  # Add default wind unit
+            sess["precip_unit"] = "in"  # Add default precipitation
 
         # Make a request to the forecast endpoint
         response = client.get("/forecast")
